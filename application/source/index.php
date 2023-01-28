@@ -40,25 +40,25 @@
 	<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/tailwindcss/dist/tailwind.min.css">
 	<title>Register</title>
 </head>
-<body>
-	<div>
-		<section class="display-flex">
+<body class="bg-gray-200">
+	<div class="flex flex-row justify-center items-center h-screen ">
+		<section class="mx-16">
 			<h1 class="text-4xl font-bold text-center" >Create an account</h1>
-			<form class="text-center" method="post" action="" name="registration-from">
+			<form  class="grid grid-cols-1 gap-4" method="post" action="" name="registration-from">
 				<div>
-					<label for="name">Name</label>
+					<label for="name">Name</label></br>
 					<input type="text" name="name" id="name" placeholder="Enter your name" pattern="[a-zA-Z0-9]+" required>
 				</div>
 				<div>
-					<label for="email">Email</label>
+					<label for="email">Email</label></br>
 					<input type="email" name="email" id="email" placeholder="Enter your email" required>
 				</div>
 				<div>
-					<label for="password">Password</label>
+					<label for="password">Password</label></br>
 					<input type="password" name="password" id="password" placeholder="Enter your password" required>
 				</div>
 				<div>
-					<label for="confirm_password">Confirm Password</label>
+					<label for="confirm_password">Confirm Password</label></br>
 					<input type="password" name="confirm_password" id="confirm_password" placeholder="Confirm your password" required>
 				</div>
 				<div>
@@ -66,7 +66,7 @@
 				</div>
 			</form>
 		</section>
-		<section>	
+		<section class="mx-16">	
 			<img src="/images/wallet.png" alt="">
 		</section>
 	</div>
