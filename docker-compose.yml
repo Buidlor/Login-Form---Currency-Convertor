@@ -1,0 +1,50 @@
+version: '3'
+
+services:
+  ## PHP-Apache service
+  server:
+    build:
+      context: ./application
+    container_name: auth-webserver
+    ports:
+      - 80:80
+    restart: always
+    volumes:
+      - ./application/source:/var/www/html
+    env_file:
+      - ./docker.env
+    networks:
+      - auth
+
+  ## Mariadb service 
+  database:
+    image: mariadb:10.4.2
+    container_name: auth-database
+    restart: always
+    volumes:
+      - ./database:/docker-entrypoint-initdb.d/
+      - auth_data:/var/lib/mysql
+    env_file:
+      - ./docker.env
+    networks:
+      - auth
+
+  ## PhpMyAdmin
+  myadmin:
+    image: phpmyadmin/phpmyadmin:4.8.1
+    container_name: auth-phpmyadmin
+    ports:
+      - 8081:80
+    restart: always
+    env_file:
+      - ./docker.env
+    depends_on:
+      - database
+    networks:
+      - auth
+
+networks:
+  auth:
+
+volumes:
+  auth_data:
