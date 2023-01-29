@@ -41,33 +41,41 @@
 	<title>Register</title>
 </head>
 <body class="bg-gray-200">
+	<header class="bg-green-800 h-12 fixed w-full top-0 z-50">
+		<nav class="">
+			<ul class="flex mx-10 items-center pt-2 justify-between">
+				<li><h1 class ="text-xl text-white font-bold" >Wallet</h1></li>
+				<li><button class="bg-black"><a class="text-white" href="login.php">Login</a></button></li>
+			</ul>
+		</nav>
+	</header>
 	<div class="flex flex-row justify-center items-center h-screen ">
 		<section class="mx-16">
 			<h1 class="text-4xl font-bold text-center" >Create an account</h1>
 			<form  class="grid grid-cols-1 gap-4" method="post" action="" name="registration-from">
 				<div>
 					<label for="name">Name</label></br>
-					<input type="text" name="name" id="name" placeholder="Enter your name" pattern="[a-zA-Z0-9]+" required>
+					<input class="shadow-lg bg-green-100 rounded-lg p-2 border border-gray-400 w-96" type="text" name="name" id="name" placeholder="Enter your name" pattern="[a-zA-Z0-9]+" required>
 				</div>
 				<div>
 					<label for="email">Email</label></br>
-					<input type="email" name="email" id="email" placeholder="Enter your email" required>
+					<input class="shadow-lg bg-green-100 rounded-lg p-2 border border-gray-400 w-96" type="email" name="email" id="email" placeholder="Enter your email" required>
 				</div>
 				<div>
 					<label for="password">Password</label></br>
-					<input type="password" name="password" id="password" placeholder="Enter your password" required>
+					<input class="shadow-lg bg-green-100 rounded-lg p-2 border border-gray-400 w-96" type="password" name="password" id="password" placeholder="Enter your password" required>
 				</div>
 				<div>
 					<label for="confirm_password">Confirm Password</label></br>
-					<input type="password" name="confirm_password" id="confirm_password" placeholder="Confirm your password" required>
+					<input class="shadow-lg bg-green-100 rounded-lg p-2 border border-gray-400 w-96" type="password" name="confirm_password" id="confirm_password" placeholder="Confirm your password" required>
 				</div>
 				<div>
-					<input type="submit" name="submit" value="Register">
+					<input class ="bg-green-500 shadow-outline shadow-lg text-white font-bold py-2 px-4 rounded cursor-pointer" type="submit" name="submit" value="Register">
 				</div>
 			</form>
 		</section>
 		<section class="mx-16">	
-			<img src="/images/wallet.png" alt="">
+			<img  src="/images/wallet.png" alt="">
 		</section>
 	</div>
 </body>
