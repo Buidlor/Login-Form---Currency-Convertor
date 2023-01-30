@@ -19,8 +19,6 @@
             echo "Email does not exist";
         }
     }
-
-
 ?>
 
 <!DOCTYPE html>
@@ -34,7 +32,8 @@
     <title>Login</title>
 </head>
 <body class="bg-gray-200">
-<header class="bg-gradient-to-r from-green-900 to-green-700  shadow-md h-12 sticky top-0 z-10">
+    <!-- navbar  -->
+    <header class="bg-gradient-to-r from-green-900 to-green-700  shadow-md h-12 sticky top-0 z-10">
 		<nav class="">
 			<ul class="flex mx-10 items-center  justify-between">
 				<li><h1 class ="text-xl text-white font-bold" >Wallet</h1></li>
@@ -42,6 +41,8 @@
 			</ul>
 		</nav>
 	</header>
+
+    <!-- main content  -->
     <div class="grid md:grid-cols-2 gap-1 items-center mt-10 px-8">
 		<section class="ml-10 z-20">
 			<h1 class="text-4xl font-bold mb-3" >Sign In</h1>
