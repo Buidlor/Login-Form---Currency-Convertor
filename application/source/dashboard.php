@@ -51,7 +51,7 @@ if (!isset($_SESSION['user'])) {
     <!-- navbar  -->
     <header class="bg-gradient-to-r from-green-900 to-green-700 shadow-md w-full h-12 sticky top-0 z-10">
         <nav>
-            <ul class="flex py-1 md:mx-10 items-center justify-between">
+            <ul class="flex py-1 mx-5 md:mx-10 items-center justify-between">
                 <li><img src="/images/logoconvertor.PNG" alt="logo" class="w-2/5"></li>
                 <li>
                     <button id="loggeduser" class="bg-black shadow-outline shadow-lg text-white md:font-bold py-1 px-2 md:p-2 rounded cursor-pointer hover:bg-red-600">
@@ -78,7 +78,7 @@ if (!isset($_SESSION['user'])) {
             <!-- swap form -->
             <form class="md:mt-10 grid gap-2  py-2 md:py-5 place-content-stretch relative " method="post" action="" name="exchange">
                 <div class="bg-white border border-green-300 rounded-xl shadow-md transform hover:-translate-y-1 ">    
-                    <input class="text-center font-bold text-xl md:p-4 w-3/4 md:mr-5 rounded-xl m-1 focus:outline-none" type="text" pattern="[0-9]+([\.|,][0-9]+)?" name="amount" value=<?php echo $amount; ?> >
+                    <input class="text-center font-bold text-xl md:p-4 w-3/4  md:mr-5 rounded-xl m-1 focus:outline-none" type="text" pattern="[0-9]+([\.|,][0-9]+)?" name="amount" value=<?php echo $amount; ?> >
                     <select class="md:p-4 font-bold focus:outline-none" type='dropdown' name='price' id='pirce'>
                         <option class="font-bold" value=<?php echo $coinsData[0]['current_price'];?>>BTC</option>
                         <option class="font-bold" value=<?php echo $coinsData[1]['current_price'];?>>ETH</option>

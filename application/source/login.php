@@ -35,18 +35,18 @@
     <!-- navbar  -->
     <header class="bg-gradient-to-r from-green-900 to-green-700  shadow-md h-12 sticky top-0 z-10">
 		<nav class="">
-			<ul class="flex mx-10 items-center  justify-between">
+			<ul class="flex py-1 mx-5 md:mx-10 items-center justify-between">
                 <li><img src="/images/logoconvertor.PNG" alt="logo" class="w-2/5"></li>
-				<li><button class="bg-black shadow-outline shadow-lg text-white font-bold py-2 px-4 rounded cursor-pointer"><a class="text-white" href="index.php">Register</a></button></li>
+				<li><button class="bg-black shadow-outline shadow-lg text-white md:font-bold py-1 px-2 md:p-2 rounded cursor-pointer hover:bg-green-600"><a class="text-white" href="index.php">Register</a></button></li>
 			</ul>
 		</nav>
 	</header>
 
     <!-- main content  -->
     <div class="grid md:grid-cols-2 gap-1 items-center mt-10 px-8">
-		<section class="ml-10 z-20">
-			<h1 class="text-4xl font-bold mb-3" >Sign In</h1>
-			<form  class="grid grid-cols-1 justify-center gap-4" method="post" action="" name="login-from">
+		<section class="mb-5 z-20">
+			<h1 class="text-4xl font-bold mb-3 text-center" >Sign In</h1>
+			<form  class="grid grid-cols-1 place-items-center justify-center gap-4" method="post" action="" name="login-from">
                 <div>
                     <label for="email">Email</label><br>
                     <input class="shadow-lg bg-green-100 rounded-lg p-2 border border-gray-400 md:w-96" type="email" name="email" id="email" placeholder="Enter your email" required>
