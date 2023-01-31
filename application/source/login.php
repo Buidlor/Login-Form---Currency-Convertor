@@ -45,7 +45,7 @@
     <!-- main content  -->
     <div class="grid md:grid-cols-2 gap-1 items-center mt-10 px-8">
 		<section class="mb-5 z-20">
-			<h1 class="text-4xl font-bold mb-3 text-center" >Sign In</h1>
+			<h1 class="text-2xl mb:text-4xl font-bold mb-3 text-center" >Sign In</h1>
 			<form  class="grid grid-cols-1 place-items-center justify-center gap-4" method="post" action="" name="login-from">
                 <div>
                     <label for="email">Email</label><br>

@@ -1,4 +1,19 @@
-= Docker
+# Crypto-Currency Convertor
+
+App to convert 10 different crypto-currencies in $USD value. Build with PHP, HTML and Tailwind. Developed in a Docker environment
+
+**URL [HERE]() soon**
+ (*The deployment will be with VPS.*)
+
+![register](/application/source/images/image1.png) 
+
+![register](/application/source/images/image2.png) 
+
+![register](/application/source/images/image3.png)
+
+---
+
+## Docker
 
 To setup this development environment you will need to have *docker* and
 *docker-compose* installed on you system. You can add your projects to the
