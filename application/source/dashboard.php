@@ -11,6 +11,15 @@ if (!isset($_SESSION['user'])) {
     $API_response = file_get_contents($API_url);
     $API_response = json_decode($API_response, true);
     $coinsData = array();
+    $amount = 0;
+    $price = 0;
+    if (isset($_POST['submit'])){
+        $price = $_POST['price']; 
+        $amount = $_POST['amount'];
+    }else{
+        $price = 0;
+        $amount = 0;
+    }
     
     array_push($coinsData, $API_response[0]);
     array_push($coinsData, $API_response[1]);
@@ -43,7 +52,7 @@ if (!isset($_SESSION['user'])) {
     <header class="bg-gradient-to-r from-green-900 to-green-700 shadow-md h-12 sticky top-0 z-10">
         <nav>
             <ul class="flex mx-10 items-center justify-between">
-                <li><h1 class ="text-xl text-white font-bold" >Wallet</h1></li>
+                <li><img src="/images/logoconvertor.PNG" alt="logo" class="w-2/5"></li>
                 <li>
                     <button id="loggeduser" class="bg-black shadow-outline shadow-lg text-white font-bold py-2 px-4 rounded cursor-pointer hover:bg-red-600">
                         <a class="text-white" href="login.php"><?php echo $user; ?></a>
@@ -65,42 +74,46 @@ if (!isset($_SESSION['user'])) {
                 <hr class="my-3 border-t-4 border-green-400 w-10">
                 <p class="text-sm font-light">Based on exchange rate of Coingecko</p>
             </div>
+
             <!-- swap form -->
-            <form class="m-10 grid gap-2 py-5 place-content-stretch relative " method="post" action="" name="login-from">
+            <form class="mt-10 grid gap-2 py-5 place-content-stretch relative " method="post" action="" name="exchange">
                 <div class="bg-white border border-green-300 rounded-xl shadow-md transform hover:-translate-y-1 ">    
-                    <input class="p-4 w-3/4 mr-5 rounded-xl m-1 focus:outline-none" type="text">
-                    <select class="p-4 font-bold" type='dropdown'>
-                        <option class="font-bold" value="bitcoin">BTC</option>
-                        <option class="font-bold" value="ethereum">ETH</option>
-                        <option class="font-bold" value="binancecoin">BNB</option>
-                        <option class="font-bold" value="matic-network">MATIC</option>
-                        <option class="font-bold" value="okb">OKB</option>
-                        <option class="font-bold" value="solana">SOL</option>
-                        <option class="font-bold" value="polkadot">DOT</option>
-                        <option class="font-bold" value="litecoin">LTC</option>
-                        <option class="font-bold" value="avalanche-2">AVAX</option>
-                        <option class="font-bold"  value="uniswap">UNI</option>
+                    <input class="text-center font-bold text-xl p-4 w-3/4 mr-5 rounded-xl m-1 focus:outline-none" type="text" pattern="[0-9]+([\.|,][0-9]+)?" name="amount" value=<?php echo $amount; ?> >
+                    <select class="p-4 font-bold focus:outline-none" type='dropdown' name='price' id='pirce'>
+                        <option class="font-bold" value=<?php echo $coinsData[0]['current_price'];?>>BTC</option>
+                        <option class="font-bold" value=<?php echo $coinsData[1]['current_price'];?>>ETH</option>
+                        <option class="font-bold" value=<?php echo $coinsData[2]['current_price'];?>>BNB</option>
+                        <option class="font-bold" value=<?php echo $coinsData[3]['current_price'];?>>MATIC</option>
+                        <option class="font-bold" value=<?php echo $coinsData[4]['current_price'];?>>OKB</option>
+                        <option class="font-bold" value=<?php echo $coinsData[5]['current_price'];?>>SOL</option>
+                        <option class="font-bold" value=<?php echo $coinsData[6]['current_price'];?>>DOT</option>
+                        <option class="font-bold" value=<?php echo $coinsData[7]['current_price'];?>>LTC</option>
+                        <option class="font-bold" value=<?php echo $coinsData[8]['current_price'];?>>AVAX</option>
+                        <option class="font-bold" value=<?php echo $coinsData[9]['current_price'];?>>UNI</option>
                     </select>
                 </div>
-                <div class="bg-white border border-green-300 rounded-xl shadow-md transform hover:-translate-y-1 " >
-                    <input class="p-4 w-3/4 mr-5 h-max rounded-xl m-1 focus:outline-none" type="text">
-                    <span class="p-4  font-bold">$ USD </span>
+                <div class="flex items-center bg-white border border-green-300 rounded-xl shadow-md transform hover:-translate-y-1 " >
+                    <div class="p-4 h-max rounded-xl m-1 w-4/5 text-center text-green-800 text-xl font-bold">
+                        <?php echo $price*$amount; ?>
+                    </div>
+                    <div class="p-4 font-bold  w-1/5 ">$USD</div>
                 </div>
-                <div class="absolute bottom-1/3 left-2/4 mb-1">
-                    <button class="bg-green-400 text-white p-2 rounded-full shadow-lg w-14 h-14 transform hover:-translate-y-1 ">
+                <div class="absolute bottom-1/3 left-1/2 mb-1">
+                    <button type="submit" name="submit" class="bg-green-400 text-white p-2 rounded-full shadow-lg w-14 h-14 transform hover:-translate-y-1 ">
                         <i class="fas fa-exchange-alt"></i>
                     </button>
                 </div>
             </form>
-            <div class="px-10">
-                <coingecko-coin-price-chart-widget  coin-id="bitcoin" currency="usd" height="300" locale="en"></coingecko-coin-price-chart-widget>
+         
+            <div class="">
+                <coingecko-coin-price-chart-widget background-color="#a6f7c4" coin-id="bitcoin" currency="usd" height="300" locale="en"></coingecko-coin-price-chart-widget>
             </div>
           
-            <!-- <?php 
+             <!-- <?php 
             echo '<pre>'; 
             print_r($coinsData); 
             echo '</pre>';
-            ?> -->
+            ?>  -->
         </div>
 
         <!-- right pane  -->
@@ -112,13 +125,13 @@ if (!isset($_SESSION['user'])) {
                 <p class="text-sm font-light">Based on exchange rate of Coingecko</p>
             </div>
             <div  class=" my-5 grid">
-                <table>
+                <table class="my-7">
                     <tr>
                         <td class="text-lg font-bold">Rank</td>
                         <td class="text-lg font-bold">Name</td>
                         <td class="text-lg font-bold">Price</td>
                         <td class="text-lg font-bold">Market Cap</td>
-                        <td class="text-lg font-bold">Circulating Supply</td>
+                        <td class="text-lg font-bold">Icon</td>
                     </tr>
                     
                     <?php foreach($coinsData as $coin){ ?>
@@ -127,7 +140,7 @@ if (!isset($_SESSION['user'])) {
                             <td><?php echo $coin['name']; ?></td>
                             <td><?php echo $coin['current_price']; ?></td>
                             <td><?php echo $coin['market_cap']; ?></td>
-                            <td><?php echo $coin['circulating_supply']; ?></td>
+                            <td><img class="w-10" src="<?php echo $coin['image']; ?>"> </td>
                         </tr>
                     <?php } ?>
                 </table>

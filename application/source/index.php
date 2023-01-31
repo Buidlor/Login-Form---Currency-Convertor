@@ -11,6 +11,7 @@
 		$check_email->execute();
 		if ($check_email->rowCount() > 0) {
 			echo "Email already exists";
+			
 		}else{
 			if ($password == $confirm_password) {
 				$hash = password_hash($password, PASSWORD_DEFAULT);
@@ -18,9 +19,10 @@
 				$insert->bindParam(':name', $name);
 				$insert->bindParam(':email', $email);
 				$insert->bindParam(':password', $hash);
+				
 				if ($insert->execute()) {
-					$_SESSION['user'] = $row['UserName'];
-					header("Location: dashboard.php");
+					$_SESSION['user'] = $name;
+					header('location: dashboard.php');
 				}else{
 					echo "Registration failed";
 				}
@@ -44,7 +46,7 @@
 	<header class="bg-gradient-to-r from-green-900 to-green-700  shadow-md h-12 sticky top-0 z-10">
 		<nav class="">
 			<ul class="flex mx-10 items-center  justify-between">
-				<li><h1 class ="text-xl text-white font-bold" >Wallet</h1></li>
+				<li><img src="/images/logoconvertor.PNG" alt="logo" class="w-2/5"></li>
 				<li><button class="bg-black shadow-outline shadow-lg text-white font-bold py-2 px-4 rounded cursor-pointer"><a class="text-white" href="login.php">Login</a></button></li>
 			</ul>
 		</nav>

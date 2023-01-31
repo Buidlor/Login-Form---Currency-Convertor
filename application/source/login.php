@@ -36,8 +36,8 @@
     <header class="bg-gradient-to-r from-green-900 to-green-700  shadow-md h-12 sticky top-0 z-10">
 		<nav class="">
 			<ul class="flex mx-10 items-center  justify-between">
-				<li><h1 class ="text-xl text-white font-bold" >Wallet</h1></li>
-				<li><button class="bg-black shadow-outline shadow-lg text-white font-bold py-2 px-4 rounded cursor-pointer"><a class="text-white" href="login.php">Login</a></button></li>
+                <li><img src="/images/logoconvertor.PNG" alt="logo" class="w-2/5"></li>
+				<li><button class="bg-black shadow-outline shadow-lg text-white font-bold py-2 px-4 rounded cursor-pointer"><a class="text-white" href="index.php">Register</a></button></li>
 			</ul>
 		</nav>
 	</header>
@@ -56,7 +56,9 @@
                     <input class="shadow-lg bg-green-100 rounded-lg p-2 border border-gray-400 md:w-96" type="password" name="password" id="password" placeholder="Enter your password" required>
                 </div>
                 <div>
-                    <input class ="bg-green-500 shadow-outline shadow-lg text-white font-bold py-2 px-4 rounded cursor-pointer" type="submit" name="login" value="Login"><br>
+                    <input class ="bg-green-500 shadow-outline shadow-lg text-white font-bold py-2 px-4 rounded cursor-pointer" type="submit" name="login" value="Login">
+                    <button class ="bg-black shadow-xl text-white font-bold py-2 px-4 rounded cursor-pointer"><a href ="index.php"> Register</a></button>
+                    
                 </div>
 			</form>
 		</section>
