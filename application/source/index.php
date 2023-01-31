@@ -51,10 +51,10 @@
 			</ul>
 		</nav>
 	</header>
-	<div class="grid md:grid-cols-2 gap-1 items-center mt-10 px-8">
-		<section class="ml-10 z-20">
-			<h1 class="text-4xl font-bold" >Create an account</h1>
-			<form  class="grid grid-cols-1 justify-center gap-4" method="post" action="" name="registration-from">
+	<div class="grid md:grid-cols-2 gap-1 mt-5 md:mt-10 md:px-8">
+		<section class="mx-10 mb-5">
+			<h1 class="text-center text-2xl md:text-4xl font-bold" >Create an account</h1>
+			<form  class="flex flex-col items-center justify-center gap-4" method="post" action="" name="registration-from">
 				<div>
 					<label for="name">Name</label></br>
 					<input class="shadow-lg bg-green-100 rounded-lg p-2 border border-gray-400 md:w-96" type="text" name="name" id="name" placeholder="Enter your name" pattern="[a-zA-Z0-9]+" required>
@@ -76,7 +76,7 @@
 				</div>
 			</form>
 		</section>
-		<section class="mr-10 mt-8 z-10">	
+		<section class="px-5 flex items-center justify-center">	
 			<img  src="/images/wallet.png" alt="">
 		</section>
 	</div>

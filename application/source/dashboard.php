@@ -46,15 +46,15 @@ if (!isset($_SESSION['user'])) {
 </head>
 
 
-<body class ="bg-gray-200 h-screen ">
+<body class ="bg-gray-200 md:h-screen ">
 
     <!-- navbar  -->
-    <header class="bg-gradient-to-r from-green-900 to-green-700 shadow-md h-12 sticky top-0 z-10">
+    <header class="bg-gradient-to-r from-green-900 to-green-700 shadow-md w-full h-12 sticky top-0 z-10">
         <nav>
-            <ul class="flex mx-10 items-center justify-between">
+            <ul class="flex py-1 md:mx-10 items-center justify-between">
                 <li><img src="/images/logoconvertor.PNG" alt="logo" class="w-2/5"></li>
                 <li>
-                    <button id="loggeduser" class="bg-black shadow-outline shadow-lg text-white font-bold py-2 px-4 rounded cursor-pointer hover:bg-red-600">
+                    <button id="loggeduser" class="bg-black shadow-outline shadow-lg text-white md:font-bold py-1 px-2 md:p-2 rounded cursor-pointer hover:bg-red-600">
                         <a class="text-white" href="login.php"><?php echo $user; ?></a>
                     </button>
                 </li>
@@ -64,22 +64,22 @@ if (!isset($_SESSION['user'])) {
 
 
     <!-- main content  -->
-    <div id="app-body" class="m-5 grid grid-cols-2 ">
+    <div id="app-body" class="md:m-5 grid md:grid-cols-2 ">
 
         <!-- left pane  -->
-        <div id="convertor-pane" class="pane m-5 border border-green-300 rounded-lg p-5 shadow-xl  ">
+        <div id="convertor-pane" class="pane md:m-5 border border-green-300 rounded-lg p-1 sm:p-2 md:p-5 shadow-xl  ">
             <div id="titles" >
-                <p>Welcome <?php echo $user; ?> !</p>
-                <h1 class="font-bold text-3xl">Currency Convertor</h1>
-                <hr class="my-3 border-t-4 border-green-400 w-10">
+                <p >Welcome <?php echo $user; ?> !</p>
+                <h1 class="font-bold text-xl md:text-3xl">Currency Convertor</h1>
+                <hr class="my-1 md:my-3 border-t-4 border-green-400 w-10">
                 <p class="text-sm font-light">Based on exchange rate of Coingecko</p>
             </div>
 
             <!-- swap form -->
-            <form class="mt-10 grid gap-2 py-5 place-content-stretch relative " method="post" action="" name="exchange">
+            <form class="md:mt-10 grid gap-2  py-2 md:py-5 place-content-stretch relative " method="post" action="" name="exchange">
                 <div class="bg-white border border-green-300 rounded-xl shadow-md transform hover:-translate-y-1 ">    
-                    <input class="text-center font-bold text-xl p-4 w-3/4 mr-5 rounded-xl m-1 focus:outline-none" type="text" pattern="[0-9]+([\.|,][0-9]+)?" name="amount" value=<?php echo $amount; ?> >
-                    <select class="p-4 font-bold focus:outline-none" type='dropdown' name='price' id='pirce'>
+                    <input class="text-center font-bold text-xl md:p-4 w-3/4 md:mr-5 rounded-xl m-1 focus:outline-none" type="text" pattern="[0-9]+([\.|,][0-9]+)?" name="amount" value=<?php echo $amount; ?> >
+                    <select class="md:p-4 font-bold focus:outline-none" type='dropdown' name='price' id='pirce'>
                         <option class="font-bold" value=<?php echo $coinsData[0]['current_price'];?>>BTC</option>
                         <option class="font-bold" value=<?php echo $coinsData[1]['current_price'];?>>ETH</option>
                         <option class="font-bold" value=<?php echo $coinsData[2]['current_price'];?>>BNB</option>
@@ -93,13 +93,13 @@ if (!isset($_SESSION['user'])) {
                     </select>
                 </div>
                 <div class="flex items-center bg-white border border-green-300 rounded-xl shadow-md transform hover:-translate-y-1 " >
-                    <div class="p-4 h-max rounded-xl m-1 w-4/5 text-center text-green-800 text-xl font-bold">
+                    <div class="md:p-4 md:h-max rounded-xl m-1 w-4/5 text-center text-green-800 text-xl font-bold">
                         <?php echo $price*$amount; ?>
                     </div>
-                    <div class="p-4 font-bold  w-1/5 ">$USD</div>
+                    <div class="md:p-4 font-bold w-1/5 ">$USD</div>
                 </div>
-                <div class="absolute bottom-1/3 left-1/2 mb-1">
-                    <button type="submit" name="submit" class="bg-green-400 text-white p-2 rounded-full shadow-lg w-14 h-14 transform hover:-translate-y-1 ">
+                <div class="absolute bottom-1/3 left-1/2 md:mb-1">
+                    <button type="submit" name="submit" class="bg-green-400 text-white py-1 px-2 md:p-2 rounded-full shadow-lg md:w-14 md:h-14 transform hover:-translate-y-1 ">
                         <i class="fas fa-exchange-alt"></i>
                     </button>
                 </div>
@@ -117,15 +117,15 @@ if (!isset($_SESSION['user'])) {
         </div>
 
         <!-- right pane  -->
-        <div id="exchange-pane" class="pane m-5 p-5 shadow-xl">
+        <div id="exchange-pane" class="pane md:m-5 md:p-5 shadow-xl">
             <div id="titles" >
-                <p>Welcome <?php echo $user; ?> !</p>
+                <p>.</p>
                 <h1 class="font-bold text-3xl">Exchange-Rates</h1>
-                <hr class="my-3 border-t-4 border-green-400 w-10">
+                <hr class="my-1 md:my-3 border-t-4 border-green-400 w-10">
                 <p class="text-sm font-light">Based on exchange rate of Coingecko</p>
             </div>
-            <div  class=" my-5 grid">
-                <table class="my-7">
+            <div  class=" md:my-5 grid">
+                <table class="my-3 md:my-7">
                     <tr>
                         <td class="text-lg font-bold">Rank</td>
                         <td class="text-lg font-bold">Name</td>
